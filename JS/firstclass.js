@@ -25,44 +25,67 @@
 
 // Asynchronous Programing 
 // register()
-function register()
-{
-    waitfortwoseconds();
-    console.log("register enal");
-    sendEmail();
-}
+// function register()
+// {
+//     waitfortwoseconds();
+//     console.log("register enal");
+//     sendEmail();
+// }
 
-// sendEmail()
-function sendEmail()
+// // sendEmail()
+// function sendEmail()
+// {
+//     waitfortwoseconds();
+//     console.log("sendemail enal");
+//     login();
+// }
+// // login()
+// function login()
+// {
+//     waitfortwoseconds();
+//     console.log("login enal");
+//     getData();
+// }
+// // getData()
+// function getData()
+// {
+//     waitfortwoseconds();
+//     console.log("getdata enal");
+//     DisplayData();
+// }
+// // DisplayData()
+// function DisplayData()
+// {
+//     waitfortwoseconds();
+//     console.log("DisplayData enal");
+// }
+// // wait function
+// function waitfortwoseconds()
+// {
+//     const ms=new Date().getTime()+2000;
+//     while(new Date().getTime()<ms);
+// }
+// waitfortwoseconds();
+
+function register(cb)
 {
-    waitfortwoseconds();
-    console.log("sendemail enal");
-    login();
-}
-// login()
-function login()
+    setTimeout(()=>
 {
-    waitfortwoseconds();
-    console.log("login enal");
-    getData();
-}
-// getData()
-function getData()
+    console.log("register end");
+    cb();
+},2000)
+// Callback Hell
+register(()=>
 {
-    waitfortwoseconds();
-    console.log("getdata enal");
-    DisplayData();
+    sendEmail(()=>
+    {
+        log(()=>
+        {
+            getData(()=>
+            {
+                DiplayData();
+            })
+        })
+    })
+})
 }
-// DisplayData()
-function DisplayData()
-{
-    waitfortwoseconds();
-    console.log("DisplayData enal");
-}
-// wait function
-function waitfortwoseconds()
-{
-    const ms=new Date().getTime()+2000;
-    while(new Date().getTime()<ms);
-}
-waitfortwoseconds();
