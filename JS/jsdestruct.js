@@ -6,7 +6,7 @@ const num=[10,30,40,50];
 // // const d = num[1];
 // // const e = num[0];
 
-// // const [a,b,c,d,e]=num;
+// // const [a,b,c,d,e]=num
 // // console.log(a);
 // // console.log(b);
 // // console.log(c);
