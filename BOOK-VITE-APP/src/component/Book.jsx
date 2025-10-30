@@ -2,7 +2,7 @@ import React from 'react'
 import '../App.css'
 const Book = () => {
   return (
-    <div className='card'>
+    <div className='cart'>
         <img src="" width="200" height="200" alt="image" />
         <h3>Title : Physics</h3>
         <h4>Price : 100</h4>
