@@ -1,11 +1,12 @@
 import React from 'react'
-import './Header.css'
-const Header = () => {
+
+function Header() {
   return (
     <div className='header'>
-      <h1><center>Shopping Cart App</center></h1>
+      <h1>Shopping cart App</h1>
     </div>
   )
 }
 
 export default Header
+
