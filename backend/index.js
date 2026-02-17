@@ -1,14 +1,14 @@
 
 const http=require('http');
 const sum=require('./fetchAPI')
-
 const { json } = require('stream/consumers');
+const {readData,writeData} =  require('./usefsmodule');
 const PORT=4002;
 const server = http.createServer(async(req,res)=>{
 
     res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
 // res.setHeader('Content-Type','application/json');
 // // res.end('<h2>Welcome to Node Server </h2>')
@@ -23,6 +23,18 @@ const server = http.createServer(async(req,res)=>{
     {
          res.setHeader("Content-Type",'application/json')
          const data = await sum();
+        res.end(JSON.stringify({msg:data}))
+    }
+    else if(req.url=='/datawrite' && req.method=="GET")
+    {
+         res.setHeader("Content-Type",'application/json')
+         const data =writeData();
+        res.end(JSON.stringify({msg:data}))
+    }
+     else if(req.url=='/dataread' && req.method=="GET")
+    {
+         res.setHeader("Content-Type",'application/json')
+         const data =readData();
         res.end(JSON.stringify({msg:data}))
     }
     else
