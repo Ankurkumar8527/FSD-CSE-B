@@ -1,6 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Login() {
+  const[userName,setUserName]=useState();
+  const[password,setUserPassword]=useState();
+  
+  function authentication()
+  {
+    const navigate=useNavigate();
+    const res = fetch('url',
+      {
+        method:'Post',
+        body:JSON.stringify({userName,password}),
+        headers:{'COntent-Type':'application/json'}
+      }
+    )
+    const responsejson=res.json();
+    if(responsejson.msg=="success")
+    {
+      navigate('//dashboard')
+    }
+    else{
+      alert(responsejson.msg)
+    }
+  }
   return (
     
     <div>
